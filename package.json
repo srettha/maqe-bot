@@ -1,0 +1,30 @@
+{
+    "name": "maqe-bot",
+    "version": "1.0.0",
+    "main": "./lib/maqe-bot.js",
+    "license": "MIT",
+    "author": {
+        "name": "Srettha Terananont",
+        "email": "sretthaterananont@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thestrayed/maqe-bot.git"
+    },
+    "scripts": {
+        "lint": "eslint --ext .js .",
+        "test": "mocha ./tests/*.test.js"
+    },
+    "pre-commit": [
+        "lint"
+    ],
+    "devDependencies": {
+        "chai": "4.2.0",
+        "eslint": "5.13.0",
+        "eslint-config-airbnb-base": "13.1.0",
+        "eslint-plugin-import": "2.16.0",
+        "mocha": "5.2.0",
+        "pre-commit": "1.2.2",
+        "sinon": "7.2.3"
+    }
+}
