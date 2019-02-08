@@ -13,7 +13,9 @@
     },
     "scripts": {
         "lint": "eslint --ext .js .",
-        "test": "mocha ./tests/*.test.js"
+        "ci:lint": "eslint --format checkstyle --max-warnings 10 --ext .js .",
+        "test": "mocha ./tests/*.test.js",
+        "ci:test": "nyc --reporter=text npm test"
     },
     "pre-commit": [
         "lint"
@@ -24,6 +26,7 @@
         "eslint-config-airbnb-base": "13.1.0",
         "eslint-plugin-import": "2.16.0",
         "mocha": "5.2.0",
+        "nyc": "13.2.0",
         "pre-commit": "1.2.2",
         "sinon": "7.2.3"
     }
