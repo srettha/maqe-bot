@@ -14,7 +14,7 @@
     "scripts": {
         "lint": "eslint --ext .js .",
         "ci:lint": "mkdir -p ./reports && eslint --format=html --output-file ./reports/eslint/eslint.html --max-warnings 10 --ext .js .",
-        "test": "mocha --reporter=mocha-junit-reporter --reporter-options mochaFile=./reports/mocha/test-results.xml ./tests/*.test.js",
+        "test": "mocha --reporter=mochawesome --reporter-options reportDir=./reports/mocha ./tests/*.test.js",
         "ci:test": "nyc npm test"
     },
     "pre-commit": [
@@ -26,7 +26,7 @@
         "eslint-config-airbnb-base": "13.1.0",
         "eslint-plugin-import": "2.16.0",
         "mocha": "5.2.0",
-        "mocha-junit-reporter": "1.18.0",
+        "mochawesome": "3.1.1",
         "nyc": "13.2.0",
         "pre-commit": "1.2.2",
         "sinon": "7.2.3"
