@@ -30,6 +30,15 @@ describe('MAQEBOT', () => {
         assert.deepEqual(actual, expected);
     });
 
+    it('should complain about unexpected of instructions', () => {
+        try {
+            maqeBot.walkTheWalk('rw15rl15');
+            assert.fail('it should fail but pass');
+        } catch (err) {
+            assert.equal(err.message, 'Given instruction doesn\'t match expected command of instruction');
+        }
+    });
+
     describe('take the right step', () => {
         it('should change direction to right once', () => {
             const expected = { X: 0, Y: 0, Direction: 'East' };
@@ -91,6 +100,13 @@ describe('MAQEBOT', () => {
     });
 
     describe('take a walk', () => {
+        it('should do nothing if there is no walk instruction', () => {
+            const expected = { X: 0, Y: 0, Direction: 'North' };
+            const actual = maqeBot.walkTheWalk('15');
+
+            assert.deepEqual(actual, expected);
+        });
+
         it('should walk forward on north direction (N)', () => {
             const expected = { X: 0, Y: 15, Direction: 'North' };
             const actual = maqeBot.walkTheWalk('W15');
