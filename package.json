@@ -15,13 +15,15 @@
         "lint": "eslint --ext .js .",
         "ci:lint": "mkdir -p ./reports && eslint --format=html --output-file ./reports/eslint/eslint.html --max-warnings 10 --ext .js .",
         "test": "mocha --reporter=mochawesome --reporter-options reportDir=./reports/mocha ./tests/*.test.js",
-        "ci:test": "nyc npm test"
+        "ci:test": "nyc npm test",
+        "ci:coverage": "nyc report --reporter=text-lcov | coveralls"
     },
     "pre-commit": [
         "lint"
     ],
     "devDependencies": {
         "chai": "4.2.0",
+        "coveralls": "3.0.2",
         "eslint": "5.13.0",
         "eslint-config-airbnb-base": "13.1.0",
         "eslint-plugin-import": "2.16.0",
