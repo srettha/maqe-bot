@@ -100,6 +100,13 @@ describe('MAQEBOT', () => {
     });
 
     describe('take a walk', () => {
+        it('should do nothing if provide only walk instruction without any step', () => {
+            const expected = { X: 0, Y: 0, Direction: 'North' };
+            const actual = maqeBot.walkTheWalk('W');
+
+            assert.deepEqual(actual, expected);
+        });
+
         it('should do nothing if there is no walk instruction', () => {
             const expected = { X: 0, Y: 0, Direction: 'North' };
             const actual = maqeBot.walkTheWalk('15');
