@@ -1,0 +1,18 @@
+{
+    "editor.tabSize": 4,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "files.insertFinalNewline": true,
+    "files.defaultLanguage": "typescript",
+    "files.exclude": {
+        ".git/*": true,
+        ".nyc_output": true,
+        ".tmp": true,
+        ".rpt2_cache": true,
+        "**/*.map": true,
+        "**/coverage": true,
+        "build": true,
+        "dist": true,
+        "node_modules": true
+    },
+}
