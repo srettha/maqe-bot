@@ -14,10 +14,37 @@ RW15RW1
 
 with the given input, what is answer of those steps?
 
-```javascript
+```typescript
 {
     X: 15,
     Y: -1,
     Direction: 'South',
 }
 ```
+
+# Getting started
+
+### Installation
+
+1. Clone project
+
+1. Install project's dependencies
+
+    ```bash
+    yarn
+    ```
+
+### Test
+
+1. Running follow command to execute test
+
+    ```bash
+    yarn test
+    ```
+
+
+## References
+
+- https://en.wikipedia.org/wiki/Cardinal_direction
+
+- https://en.wikipedia.org/wiki/Relative_direction
