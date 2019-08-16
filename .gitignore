@@ -1,9 +1,12 @@
+package-lock.json
+
+# Docker Temp
+docker/emails
+
 # Logs
 logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Runtime data
 pids
@@ -20,24 +23,15 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
 
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# TypeScript v1 declaration files
-typings/
+# Dependency directory
+node_modules
+jspm_packages
 
 # Optional npm cache directory
 .npm
@@ -48,36 +42,37 @@ typings/
 # Optional REPL history
 .node_repl_history
 
-# Output of 'npm pack'
-*.tgz
+# Users Environment Variables
+*.swo
+*.swp
+*.rdb
+.DS_Store
+.tmp
+.env.docker
+*.env
+container-private-key
+*.iml
+.temp/
+.idea/
 
-# Yarn Integrity file
-.yarn-integrity
+# Test garbages
+file
 
-# dotenv environment variables file
-.env
-.env.test
+**.numbers
 
-# parcel-bundler cache (https://parceljs.org/)
-.cache
+# SSL certificate
+ssl-taskworld*
+adfs-taskworld-com.crt
+adfs-taskworld-com.key
 
-# next.js build output
-.next
+# Output files
+/dist
+/dist-lib
+ProjectReport.csv
 
-# nuxt.js build output
-.nuxt
+# Ignore junit xml file
+*-results.xml
+junit.xml
 
-# vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# Reports folder
-reports
+# etc
+/.rpt2_cache
