@@ -14,6 +14,7 @@ export default class MAQEBot implements IMAQEBot {
     protected y: number = 0;
 
     public walk(input: string = ''): IStep {
+        this.resetState();
         if (input === '') {
             return {
                 X: this.x,
@@ -23,8 +24,7 @@ export default class MAQEBot implements IMAQEBot {
         }
 
         this.inputLength = input.length - 1;
-
-        [...input].forEach((action, i) => this.takeAnAction(action, i));
+        [...input].forEach((action, i) => this.makeDecisionFromAction(action, i));
 
         return {
             X: this.x,
@@ -33,34 +33,7 @@ export default class MAQEBot implements IMAQEBot {
         } as IStep;
     }
 
-    private clearAStep(): void {
-        this.step = '';
-    }
-
-    private takeAnAction(action: string, index: number): void {
-        if (action === LEFT) {
-            this.takeAStep();
-            this.takeADirection(LEFT);
-        } else if (action === RIGHT) {
-            this.takeAStep();
-            this.takeADirection(RIGHT);
-        } else if (action === WALK) {
-            this.takeAStep();
-            this.step += action;
-        } else if (DIGIT_REGEX.test(action)) {
-            if (this.step.charAt(0) === WALK) {
-                this.step += action;
-            }
-
-            if (this.inputLength === index) {
-                this.takeAStep();
-            }
-        } else {
-            throw new Error('Given instruction doesn\'t match expected command of instruction');
-        }
-    }
-
-    private takeADirection(relativeDirection: IRelativeDirection): void {
+    private changeDirection(relativeDirection: IRelativeDirection): void {
         if (this.direction === 0 && relativeDirection === LEFT) {
             this.direction = DIRECTIONS.length - 1;
             return;
@@ -79,7 +52,30 @@ export default class MAQEBot implements IMAQEBot {
         this.direction += 1;
     }
 
-    private takeAStep(): void {
+    private makeDecisionFromAction(action: string, index: number): void {
+        if (action === LEFT) {
+            this.moveForward();
+            this.changeDirection(LEFT);
+        } else if (action === RIGHT) {
+            this.moveForward();
+            this.changeDirection(RIGHT);
+        } else if (action === WALK) {
+            this.moveForward();
+            this.step += action;
+        } else if (DIGIT_REGEX.test(action)) {
+            if (this.step.charAt(0) === WALK) {
+                this.step += action;
+            }
+
+            if (this.inputLength === index) {
+                this.moveForward();
+            }
+        } else {
+            throw new Error('Given instruction doesn\'t match expected command of instruction');
+        }
+    }
+
+    private moveForward(): void {
         if (this.step === '') {
             return;
         }
@@ -88,20 +84,32 @@ export default class MAQEBot implements IMAQEBot {
         switch (this.direction) {
             case 0:
                 this.x -= parseInt(this.step, 10);
-                this.clearAStep();
+                this.resetStep();
                 break;
             case 1:
                 this.y += parseInt(this.step, 10);
-                this.clearAStep();
+                this.resetStep();
                 break;
             case 2:
                 this.x += parseInt(this.step, 10);
-                this.clearAStep();
+                this.resetStep();
                 break;
             default:
                 this.y -= parseInt(this.step, 10);
-                this.clearAStep();
+                this.resetStep();
                 break;
         }
+    }
+
+    private resetState(): void {
+        this.direction = 1;
+        this.inputLength = 0;
+        this.step = '';
+        this.x = 0;
+        this.y = 0;
+    }
+
+    private resetStep(): void {
+        this.step = '';
     }
 }
