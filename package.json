@@ -2,12 +2,12 @@
     "name": "@thestrayed/maqebot",
     "version": "2.0.4",
     "license": "MIT",
-    "main": "dist/index.js",
+    "main": "lib/index.js",
     "bin": {
-        "maqebot": "dist/index.js"
+        "maqebot": "lib/index.js"
     },
     "files": [
-        "dist"
+        "lib"
     ],
     "author": {
         "name": "Srettha Terananont",
@@ -18,7 +18,7 @@
         "url": "https://github.com/thestrayed/maqe-bot.git"
     },
     "scripts": {
-        "prebuild": "rimraf dist",
+        "prebuild": "rimraf lib",
         "build": "tsc -p .",
         "lint": "tslint --project tsconfig.json",
         "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
