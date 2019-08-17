@@ -158,6 +158,28 @@ describe('MAQEBot', () => {
 
             expect(actual).toEqual(expected);
         });
+
+        it('should do nothing if provide direction and walk instruction without any step', () => {
+            const expected = {
+                X: 0,
+                Y: 0,
+                Direction: 'East',
+            } as IStep;
+            const actual = maqeBot.walk('RW');
+
+            expect(actual).toEqual(expected);
+        });
+
+        it('should take a step only when walk instruction provided with step', () => {
+            const expected = {
+                X: 0,
+                Y: -15,
+                Direction: 'South',
+            } as IStep;
+            const actual = maqeBot.walk('RWRW15');
+
+            expect(actual).toEqual(expected);
+        });
     });
 
     describe('take the right step then a walk', () => {

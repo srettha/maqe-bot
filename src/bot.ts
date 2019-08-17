@@ -81,6 +81,10 @@ export default class MAQEBot implements IMAQEBot {
         }
 
         this.step = this.step.substring(1);
+        if (this.step === '') {
+            return;
+        }
+
         switch (this.direction) {
             case 0:
                 this.x -= parseInt(this.step, 10);
