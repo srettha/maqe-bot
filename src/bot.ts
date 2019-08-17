@@ -1,10 +1,10 @@
-import { ICardinalDirection, IMAQEBot, IRelativeDirection, IStep } from './bot.types';
+import { IDirection, IMAQEBot, IStep, ITurn  } from './bot.types';
 
 const DIGIT_REGEX: RegExp = /\d/;
 const WALK: string = 'W';
-const LEFT: IRelativeDirection = 'L';
-const RIGHT: IRelativeDirection = 'R';
-const DIRECTIONS: ICardinalDirection[] = ['West', 'North', 'East', 'South'];
+const LEFT: ITurn = 'L';
+const RIGHT: ITurn = 'R';
+const DIRECTIONS: IDirection[] = ['West', 'North', 'East', 'South'];
 
 export default class MAQEBot implements IMAQEBot {
     protected direction: number = 1;
@@ -33,18 +33,18 @@ export default class MAQEBot implements IMAQEBot {
         } as IStep;
     }
 
-    private changeDirection(relativeDirection: IRelativeDirection): void {
-        if (this.direction === 0 && relativeDirection === LEFT) {
+    private changeDirectionFromTurn(turn: ITurn): void {
+        if (this.direction === 0 && turn === LEFT) {
             this.direction = DIRECTIONS.length - 1;
             return;
         }
 
-        if (this.direction === DIRECTIONS.length - 1 && relativeDirection === RIGHT) {
+        if (this.direction === DIRECTIONS.length - 1 && turn === RIGHT) {
             this.direction = 0;
             return;
         }
 
-        if (relativeDirection === LEFT) {
+        if (turn === LEFT) {
             this.direction -= 1;
             return;
         }
@@ -55,10 +55,10 @@ export default class MAQEBot implements IMAQEBot {
     private makeDecisionFromAction(action: string, index: number): void {
         if (action === LEFT) {
             this.moveForward();
-            this.changeDirection(LEFT);
+            this.changeDirectionFromTurn(LEFT);
         } else if (action === RIGHT) {
             this.moveForward();
-            this.changeDirection(RIGHT);
+            this.changeDirectionFromTurn(RIGHT);
         } else if (action === WALK) {
             this.moveForward();
             this.step += action;
