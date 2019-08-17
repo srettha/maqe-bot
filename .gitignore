@@ -66,6 +66,7 @@ adfs-taskworld-com.crt
 adfs-taskworld-com.key
 
 # Output files
+/lib
 /dist
 /dist-lib
 ProjectReport.csv
