@@ -4,7 +4,7 @@ import { IMAQEBot, IStep } from '../../src/bot.types';
 describe('MAQEBot', () => {
     let maqeBot: IMAQEBot;
 
-    beforeEach(() => {
+    beforeAll(() => {
         maqeBot = new MAQEBot();
     });
 
