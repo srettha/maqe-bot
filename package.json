@@ -20,7 +20,6 @@
         "prebuild": "rimraf dist",
         "build": "tsc --module commonjs && rollup -c rollup.config.ts",
         "lint": "tslint --project tsconfig.json",
-        "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
         "test": "jest -c jest.config.js ./tests",
         "test:ci": "jest -c jest.config.js --verbose --coverage --coverageReporters=text-lcov | coveralls"
     },
@@ -29,7 +28,12 @@
             "pre-commit": "yarn lint"
         }
     },
+
+    "dependencies": {
+        "inquirer": "6.5.1"
+    },
     "devDependencies": {
+        "@types/inquirer": "6.5.0",
         "@types/jest": "24.0.17",
         "coveralls": "3.0.2",
         "husky": "3.0.3",
