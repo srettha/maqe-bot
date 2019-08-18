@@ -4,15 +4,28 @@
 
 This is my interpretation on how to solve MAQE Bot challenge from [MAQE challenge](http://maqe.github.io/maqe-bot.html).
 
-The goal of this bot is to return `X`, `Y`, and `Direction` that bot is facing.
+# Overview
 
-E.g
+The goal of this bot is to return `X`, `Y`, and `Direction`.
+Walking command can only be these followings:
+
+| Command |Explanation|
+|:--:|:--|
+| W | Walk forward to that particular direction, step must be follow by this command |
+| L | Turn left |
+| R | Turn right|
 
 ```bash
 RW10RW10
 ```
 
 with the given input, what is answer of those steps?
+
+| Key |Value|
+|:--:|:--|
+| X | X-axis |
+| Y | Y-axis |
+| Direction |North, East, South, West|
 
 ```typescript
 {
