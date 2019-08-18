@@ -24,17 +24,17 @@ with the given input, what is answer of those steps?
 
 # Usage
 
-Run it as CLI with `yarn`
+### Run it as CLI with `yarn`
 
 ![yarn-cli](docs/yarn-cli.png)
 
-Remove project from CLI
+### Remove project from CLI
 
 ```bash
 yarn global remove @thestrayed/maqebot
 ```
 
-Run it as CLI with `npm` locally
+### Run it as CLI with `npm` locally
 
 1. Clone project
 
@@ -52,11 +52,7 @@ Run it as CLI with `npm` locally
 
 1. Install to npm global locally
 
-    ```bash
-    npm install -g .
-    > maqebot
-    > ? Howdy, What is your walking command? RW10RW10
-    ```
+![npm-cli](docs/npm-cli.png)
 
 # Development
 
