@@ -6,25 +6,35 @@ This is my interpretation on how to solve MAQE Bot challenge from [MAQE challeng
 
 The goal of this bot is to return `X`, `Y`, and `Direction` that bot is facing.
 
-e.g.
+E.g
 
 ```bash
-RW15RW1
+RW10RW10
 ```
 
 with the given input, what is answer of those steps?
 
 ```typescript
 {
-    X: 15,
-    Y: -1,
+    X: 10,
+    Y: -10,
     Direction: 'South',
 }
 ```
 
-# Getting started
+# Usage
 
-### Installation
+Run it as CLI with `yarn`
+
+![yarn-cli](docs/yarn-cli.png)
+
+Remove project from CLI
+
+```bash
+yarn global remove @thestrayed/maqebot
+```
+
+Run it as CLI with `npm` locally
 
 1. Clone project
 
@@ -32,6 +42,34 @@ with the given input, what is answer of those steps?
 
     ```bash
     yarn
+    ```
+
+1. Build project
+
+    ```bash
+    yarn build
+    ```
+
+1. Install to npm global locally
+
+    ```bash
+    npm install -g .
+    > maqebot
+    > ? Howdy, What is your walking command? RW10RW10
+    ```
+
+# Development
+
+1. Start the CLI
+
+    ```bash
+    yarn dev
+    ```
+
+1. Build project
+
+    ```bash
+    yarn build
     ```
 
 ### Test
