@@ -47,7 +47,7 @@ function main(): void {
         return retry();
     }).catch((err) => {
         console.error(err.message);
-        process.exit(0);
+        return retry();
     });
 }
 
