@@ -15,7 +15,3 @@ categories:
       - 'chore'
       - 'dependencies'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-template: |
-  ## Changes
-
-  $CHANGES
